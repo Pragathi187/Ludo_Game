@@ -32,11 +32,16 @@ public class Stone : MonoBehaviour
     [Header("SELECTOR")]
     public GameObject selector;
 
+    //arc movement
+    float amplitude = 0.5f;
+    float ctime = 0f;
+
 
      void Start()
     {
         startNodeIndex = commonRoute.RequestPosition(startNode.gameObject.transform);
         CreateFullRoute();
+        SetSelector(false);
     }
 
 
@@ -72,7 +77,7 @@ public class Stone : MonoBehaviour
         }
     }
 
-    IEnumerator Move()
+    IEnumerator Move(int diceNumber)
     {
         if(isMoving)
         {
@@ -96,25 +101,42 @@ public class Stone : MonoBehaviour
     
         }
         goalNode = fullRoute[routePosition];
+        
         //check possible kick
         if(goalNode.isTaken)
         {
             //kick the other stone
-            goalNode.stone.ReturnToBase();
+            if(!(goalNode.stone.stoneId==currentNode.stone.stoneId))
+            {
+                goalNode.stone.ReturnToBase();
+            }
+          
         }
 
         currentNode.stone = null;
         currentNode.isTaken = false;
 
         goalNode.stone = this;
-        goalNode.isTaken = false;
+        goalNode.isTaken = true;
 
         currentNode = goalNode;
         goalNode = null;
 
         //report to gamemanager
-        GameManager.instance.state = GameManager.States.SwitchPlayer;
-        //switch the player
+        //check for win condition
+        if(WinCondition())
+        {
+            GameManager.instance.ReportWinning();
+        }
+        if(diceNumber<6)
+        {
+            GameManager.instance.state = GameManager.States.SwitchPlayer;
+            //switch the player
+        }
+        else
+        {
+            GameManager.instance.state = GameManager.States.RollDice;
+        }
 
         isMoving = false;
     }
@@ -124,6 +146,17 @@ public class Stone : MonoBehaviour
     {
         return goalPos != (transform.position = Vector3.MoveTowards(transform.position, goalPos, speed * Time.deltaTime));
     }
+
+   /* bool MoveInArcToNextPosistion(Vector3 startPos,Vector3 goalPos, float speed)
+    {
+        ctime += speed * Time.deltaTime;
+        Vector3 myposition = Vector3.Lerp(startPos, goalPos, ctime);
+
+        myposition.y += amplitude * Mathf.Sin(Mathf.Clamp01(ctime) * Mathf.PI);
+
+        return goalPos != (transform.position = Vector3.Lerp(transform.position, myposition, ctime));
+
+    }*/
 
     public bool ReturnIsOut()
     {
@@ -173,7 +206,7 @@ public class Stone : MonoBehaviour
         }
 
         goalNode.stone = this;
-        goalNode.isTaken = true;
+        goalNode.isTaken = false;
 
         currentNode = goalNode;
         goalNode = null;
@@ -188,7 +221,7 @@ public class Stone : MonoBehaviour
 
     public bool CheckPossibleMove(int diceNumber)
     {
-        print("Move");
+        
         int tempPos = routePosition + diceNumber;
         if(tempPos >= fullRoute.Count)
         {
@@ -200,7 +233,7 @@ public class Stone : MonoBehaviour
 
     public bool CheckPossibleKick(int stoneID, int diceNumber)
     {
-        print("kick");
+       
 
         int tempPos = routePosition + diceNumber;
         if (tempPos >= fullRoute.Count)
@@ -212,6 +245,7 @@ public class Stone : MonoBehaviour
             if (stoneID == fullRoute[tempPos].stone.stoneId)
             {
                 //not a kickable stone
+               
                 return false;
             }
             return true;
@@ -222,7 +256,7 @@ public class Stone : MonoBehaviour
     public void StartTheMove(int diceNumber)
     {
         steps = diceNumber;
-        StartCoroutine(Move());
+        StartCoroutine(Move(diceNumber));
     }
 
     public void ReturnToBase()
@@ -232,6 +266,8 @@ public class Stone : MonoBehaviour
 
     IEnumerator Return()
     {
+        print("return to base");
+        GameManager.instance.ReportTurnPossible(false);
         routePosition = 0;
         currentNode = null;
         goalNode = null;
@@ -243,5 +279,45 @@ public class Stone : MonoBehaviour
         {
             yield return null;
         }
+        GameManager.instance.ReportTurnPossible(true);
+    }
+
+    bool WinCondition()
+    {
+        for(int i =0; i < finalRoute.childNodeList.Count; i++)
+        {
+            if(!finalRoute.childNodeList[i].GetComponent<Node>().isTaken)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void SetSelector(bool on)
+    {
+
+        
+        selector.SetActive(on);
+        HasTurn = on; // check  for interactivity
+    }
+
+     void OnMouseDown()
+    {
+        if(HasTurn)
+        {
+            if(!IsOut)
+            {
+                LeaveBase();
+            }
+            else
+            {
+                StartTheMove(GameManager.instance.rolledhumanDice);
+            }
+            GameManager.instance.DeactivateSelectors();
+        }
+            
+        
+        
     }
 }
