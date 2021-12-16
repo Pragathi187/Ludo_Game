@@ -105,8 +105,13 @@ public class Stone : MonoBehaviour
         //check possible kick
         if(goalNode.isTaken)
         {
+            
+            if(goalNode.isSafeNode)
+            {
+                goalNode.isTaken = false;
+            }
             //kick the other stone
-            if(!(goalNode.stone.stoneId==this.stoneId))
+            if (!(goalNode.stone.stoneId==this.stoneId))
             {
                 goalNode.stone.ReturnToBase();
             }
@@ -117,7 +122,10 @@ public class Stone : MonoBehaviour
         currentNode.isTaken = false;
 
         goalNode.stone = this;
-        goalNode.isTaken = true;
+        if(!goalNode.isSafeNode)
+        {
+            goalNode.isTaken = true;
+        }
 
         currentNode = goalNode;
         goalNode = null;
@@ -201,6 +209,8 @@ public class Stone : MonoBehaviour
         //check for kicking other stone
         if(goalNode.isTaken)
         {
+
+
             //return to base node
             goalNode.stone.ReturnToBase();
         }

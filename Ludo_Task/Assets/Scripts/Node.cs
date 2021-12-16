@@ -6,4 +6,6 @@ public class Node : MonoBehaviour
 {
     public bool isTaken;
     public Stone stone;
+
+    public bool isSafeNode;
 }
