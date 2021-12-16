@@ -70,7 +70,7 @@ public class Stone : MonoBehaviour
             fullRoute.Add(commonRoute.childNodeList[tempPos].GetComponent<Node>());
         }
 
-        for (int i = 0; i < finalRoute.childNodeList.Count-1; i++)
+        for (int i = 0; i < finalRoute.childNodeList.Count; i++)
         {
           
              fullRoute.Add(finalRoute.childNodeList[i].GetComponent<Node>());

@@ -49,11 +49,28 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+        for(int i = 0; i < playerList.Count;i++)
+        {
+            if(SaveSettings.players[i] == "HUMAN")
+            {
+                playerList[i].playerType = Entity.PlayerTypes.Human;
+            }
+            if (SaveSettings.players[i] == "CPU")
+            {
+                playerList[i].playerType = Entity.PlayerTypes.CPU;
+            }
+        }
     }
 
-     void Start()
+    void Start()
     {
         ActivateButton(false);
+
+        //randomizing player
+
+        int randomPlayer = Random.Range(0, playerList.Count);
+        activePlayer = randomPlayer;
+        InfoBox.instance.ShowMessage(playerList[activePlayer].playerName + " starts first..!!");
     }
     void Update()
     {
@@ -155,6 +172,7 @@ public class GameManager : MonoBehaviour
         }
 
         print(diceNumber);
+        InfoBox.instance.ShowMessage(playerList[activePlayer].playerName + " " + "has rolled" + " " + _diceNumber );
     }
 
     IEnumerator RollDiceDelay()
@@ -302,6 +320,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        InfoBox.instance.ShowMessage(playerList[activePlayer].playerName + "'s Turn..!!");
         state = States.RollDice;
     }
 
