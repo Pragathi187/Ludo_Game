@@ -106,7 +106,7 @@ public class Stone : MonoBehaviour
         if(goalNode.isTaken)
         {
             //kick the other stone
-            if(!(goalNode.stone.stoneId==currentNode.stone.stoneId))
+            if(!(goalNode.stone.stoneId==this.stoneId))
             {
                 goalNode.stone.ReturnToBase();
             }

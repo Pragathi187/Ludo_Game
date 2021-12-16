@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
     public GameObject diceButton;
     [HideInInspector] public int rolledhumanDice;
 
+    public Dice dice;
+
     void Awake()
     {
         instance = this;
@@ -121,27 +123,45 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void RollDice()
+    void CPUDice()
     {
-        int diceNumber = Random.Range(1, 7);
+        dice.RollDice();
+    }
+
+    public void RollDice(int _diceNumber)//call this from dice
+    {
+        //int diceNumber = Random.Range(1, 7);
         //int diceNumber = 6;
-        if (diceNumber==6)
+        int diceNumber = _diceNumber;
+
+        if(playerList[activePlayer].playerType == Entity.PlayerTypes.CPU)
         {
-            //check for the start node
-            CheckStartNode(diceNumber);
+            if (diceNumber == 6)
+            {
+                //check for the start node
+                CheckStartNode(diceNumber);
+            }
+            if (diceNumber < 6)
+            {
+                //check for move
+                MoveAStone(diceNumber);
+            }
         }
-        if(diceNumber <6)
+
+        if (playerList[activePlayer].playerType == Entity.PlayerTypes.Human)
         {
-            //check for move
-            MoveAStone(diceNumber);
+            rolledhumanDice = _diceNumber;
+            HumanRollDice();
         }
+
         print(diceNumber);
     }
 
     IEnumerator RollDiceDelay()
     {
         yield return new WaitForSeconds(2);
-        RollDice();
+        // RollDice();
+        CPUDice();
     }
 
     void CheckStartNode(int diceNumber)
@@ -313,15 +333,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void HumanRoll()
+    {
+        dice.RollDice();
+        ActivateButton(false);
+    }
+    
     //dicebutton
-   
     public void HumanRollDice()
     {
-        ActivateButton(false);
+        //ActivateButton(false);
 
         //roll dice
-       rolledhumanDice = Random.Range(1, 7);
-       // rolledhumanDice = 6;
+        //rolledhumanDice = Random.Range(1, 7);
+        //rolledhumanDice = 6;
         //movablestonelist
         List<Stone> movableStones = new List<Stone>();
        
