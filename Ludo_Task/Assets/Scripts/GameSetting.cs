@@ -23,8 +23,16 @@ public class GameSetting : MonoBehaviour
 
         }
     }
+    public void SetRedNoPlayerType(bool on)
+    {
+        if (on)
+        {
+            SaveSettings.players[0] = "NoPlayer";
+
+        }
+    }
     #endregion
-#region Green Player
+ #region Green Player
     public void SetGreenHumanType(bool on)
     {
         if (on)
@@ -91,6 +99,9 @@ public static class SaveSettings
     //red green yellow blue
 
     public static string[] players = new string[4];
+
+    public static string[] winners = new string[3] { string.Empty, string.Empty, string.Empty };
+
 
 
 }

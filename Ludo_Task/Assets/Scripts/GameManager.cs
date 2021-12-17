@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -59,6 +60,7 @@ public class GameManager : MonoBehaviour
             {
                 playerList[i].playerType = Entity.PlayerTypes.CPU;
             }
+           
         }
     }
 
@@ -137,6 +139,7 @@ public class GameManager : MonoBehaviour
                     break;
             }
         }
+        
 
     }
 
@@ -332,6 +335,12 @@ public class GameManager : MonoBehaviour
     public void ReportWinning()
     {
         playerList[activePlayer].hasWon = true;
+
+        for(int i=0; i <SaveSettings.winners.Length; i++)
+        {
+            SaveSettings.winners[i] = playerList[activePlayer].playerName;
+            break;
+        }
     }
 
     #region Player type is Human
@@ -457,4 +466,11 @@ public class GameManager : MonoBehaviour
         return tempList;
     }
     #endregion
+
+    public void Quit()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 }
+

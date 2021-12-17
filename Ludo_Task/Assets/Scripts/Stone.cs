@@ -114,6 +114,7 @@ public class Stone : MonoBehaviour
             if (!(goalNode.stone.stoneId==this.stoneId))
             {
                 goalNode.stone.ReturnToBase();
+                GameManager.instance.dice.RollDice();
             }
           
         }

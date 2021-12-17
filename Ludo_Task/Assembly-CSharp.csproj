@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\Dice.cs" />
     <Compile Include="Assets\Scripts\DiceWalls.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GameOver.cs" />
     <Compile Include="Assets\Scripts\GameSetting.cs" />
     <Compile Include="Assets\Scripts\InfoBox.cs" />
     <Compile Include="Assets\Scripts\Node.cs" />
