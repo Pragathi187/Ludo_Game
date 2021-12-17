@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
   public class StartButton : MonoBehaviour
 {
+
+    public Text messaageBox;
+    public GameSetting gameSettings;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,5 +22,7 @@ using UnityEngine.SceneManagement;
     public void StartTheGame(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+        
+       
     }
 }

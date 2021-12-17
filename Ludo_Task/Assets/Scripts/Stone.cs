@@ -32,9 +32,7 @@ public class Stone : MonoBehaviour
     [Header("SELECTOR")]
     public GameObject selector;
 
-    //arc movement
-    float amplitude = 0.5f;
-    float ctime = 0f;
+    
 
 
      void Start()
@@ -114,7 +112,8 @@ public class Stone : MonoBehaviour
             if (!(goalNode.stone.stoneId==this.stoneId))
             {
                 goalNode.stone.ReturnToBase();
-                GameManager.instance.dice.RollDice();
+               
+               // GameManager.instance.ReRoll();
             }
           
         }
@@ -156,16 +155,7 @@ public class Stone : MonoBehaviour
         return goalPos != (transform.position = Vector3.MoveTowards(transform.position, goalPos, speed * Time.deltaTime));
     }
 
-   /* bool MoveInArcToNextPosistion(Vector3 startPos,Vector3 goalPos, float speed)
-    {
-        ctime += speed * Time.deltaTime;
-        Vector3 myposition = Vector3.Lerp(startPos, goalPos, ctime);
-
-        myposition.y += amplitude * Mathf.Sin(Mathf.Clamp01(ctime) * Mathf.PI);
-
-        return goalPos != (transform.position = Vector3.Lerp(transform.position, myposition, ctime));
-
-    }*/
+   
 
     public bool ReturnIsOut()
     {

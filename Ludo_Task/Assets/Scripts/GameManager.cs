@@ -60,14 +60,31 @@ public class GameManager : MonoBehaviour
             {
                 playerList[i].playerType = Entity.PlayerTypes.CPU;
             }
-           
+            if (SaveSettings.players[i] == "NoPlayer")
+            {
+                playerList[i].playerType = Entity.PlayerTypes.NoPlayer;
+            }
+
         }
     }
 
     void Start()
     {
         ActivateButton(false);
+        for (int i = 0; i < playerList.Count; i++)
+        {
+            if (playerList[i].playerType == Entity.PlayerTypes.NoPlayer)
+            {
+                for (int j = 0; j < playerList[i].mystones.Length; j++)
+                {
+                    playerList[i].mystones[j].SetSelector(false);
+                    playerList[i].mystones[j].GetComponent<MeshRenderer>().enabled = false;
 
+                }
+
+            }
+
+        }
         //randomizing player
 
         int randomPlayer = Random.Range(0, playerList.Count);
@@ -139,7 +156,12 @@ public class GameManager : MonoBehaviour
                     break;
             }
         }
-        
+        if (playerList[activePlayer].playerType == Entity.PlayerTypes.NoPlayer)
+        {
+            state = States.SwitchPlayer;
+            StartCoroutine(SwitchPlayer());
+        }
+
 
     }
 
@@ -177,6 +199,22 @@ public class GameManager : MonoBehaviour
         print(diceNumber);
         InfoBox.instance.ShowMessage(playerList[activePlayer].playerName + " " + "has rolled" + " " + _diceNumber );
     }
+
+  /* public void ReRoll()
+    {
+        if(playerList[activePlayer].playerType== Entity.PlayerTypes.Human)
+        {
+            ActivateButton(true);
+            HumanRollDice();
+            
+
+        }
+
+        if (playerList[activePlayer].playerType == Entity.PlayerTypes.CPU)
+        {
+            CheckStartNode(Random.Range(1, 7));
+        }
+    }*/
 
     IEnumerator RollDiceDelay()
     {
@@ -322,8 +360,15 @@ public class GameManager : MonoBehaviour
             state = States.Waiting;
             return;
         }
-
-        InfoBox.instance.ShowMessage(playerList[activePlayer].playerName + "'s Turn..!!");
+        if(playerList[activePlayer].playerType == Entity.PlayerTypes.NoPlayer)
+        {
+            InfoBox.instance.ShowMessage("");
+        }
+        else
+        {
+            InfoBox.instance.ShowMessage(playerList[activePlayer].playerName + "'s Turn..!!");
+        }
+        
         state = States.RollDice;
     }
 
