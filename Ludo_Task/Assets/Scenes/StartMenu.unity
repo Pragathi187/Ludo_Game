@@ -450,8 +450,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -167, y: -61}
-  m_SizeDelta: {x: -798.1, y: -355.3}
+  m_AnchoredPosition: {x: -173.45001, y: -79.524994}
+  m_SizeDelta: {x: -811, y: -413.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &89967157
 MonoBehaviour:
@@ -479,7 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9344169, b: 0.16509432, a: 0.392}
+  m_Color: {r: 0.8018868, g: 0.631675, b: 0.631675, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1094,7 +1094,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!1 &393261747
 GameObject:
   m_ObjectHideFlags: 0
@@ -1134,8 +1134,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -167.3, y: 108}
-  m_SizeDelta: {x: -798.1, y: -355.3}
+  m_AnchoredPosition: {x: -173.59998, y: 98.600006}
+  m_SizeDelta: {x: -810.7, y: -413.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &393261749
 MonoBehaviour:
@@ -1150,7 +1150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.11792451, b: 0.11792451, a: 0.392}
+  m_Color: {r: 0.8018868, g: 0.631675, b: 0.631675, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1308,7 +1308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.03773582, g: 0.03773582, b: 0.03773582, a: 1}
+  m_Color: {r: 0.13238695, g: 0.13387622, b: 0.8018868, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1385,7 +1385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.03773582, g: 0.03773582, b: 0.03773582, a: 1}
+  m_Color: {r: 0.26133436, g: 0.5188679, b: 0.0465023, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1462,7 +1462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.03773582, g: 0.03773582, b: 0.03773582, a: 1}
+  m_Color: {r: 1, g: 0.033018887, b: 0.033018887, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1654,7 +1654,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!1 &595870562
 GameObject:
   m_ObjectHideFlags: 0
@@ -2674,7 +2674,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!1 &944890252
 GameObject:
   m_ObjectHideFlags: 0
@@ -2714,8 +2714,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 151, y: -61}
-  m_SizeDelta: {x: -798.1, y: -355.3}
+  m_AnchoredPosition: {x: 153.80005, y: -79.5}
+  m_SizeDelta: {x: -796.7, y: -413.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &944890254
 MonoBehaviour:
@@ -2743,7 +2743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16470587, g: 0.62465906, b: 1, a: 0.392}
+  m_Color: {r: 0.8018868, g: 0.631675, b: 0.631675, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2804,8 +2804,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 149.6, y: 108}
-  m_SizeDelta: {x: -798.1, y: -355.3}
+  m_AnchoredPosition: {x: 153.1, y: 98.600006}
+  m_SizeDelta: {x: -795.3, y: -413.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &969148337
 MonoBehaviour:
@@ -2833,7 +2833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.053221796, g: 0.49056602, b: 0.08701623, a: 0.392}
+  m_Color: {r: 0.8018868, g: 0.631675, b: 0.631675, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3485,21 +3485,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redCpu: {fileID: 1799694989}
   redHuman: {fileID: 1190279296}
-  redNoPlayer: {fileID: 725353107}
   greenCpu: {fileID: 935975534}
   greenHuman: {fileID: 292392692}
-  greenNoPlayer: {fileID: 1015907655}
   yellowCpu: {fileID: 345449156}
   yellowHuman: {fileID: 143595884}
   yellowNoPlayer: {fileID: 821609469}
   blueCpu: {fileID: 573193665}
   blueHuman: {fileID: 331241791}
   blueNoPlayer: {fileID: 1924161915}
-  isCpuorHuman: 0
-  isRedNoplayerOn: 0
-  isGreenNoPlayerOn: 0
-  isYellowNoPlayerOn: 0
-  isBlueNoPlayerOn: 0
 --- !u!1 &1146601576
 GameObject:
   m_ObjectHideFlags: 0
@@ -4310,8 +4303,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 52a56ec3f183e084896cd35ac6eb9a8c, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4676,7 +4669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.9622642, g: 0.5426729, b: 0.06808472, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4685,7 +4678,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 25
     m_FontStyle: 1
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 0
@@ -4826,7 +4819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.03773582, g: 0.03773582, b: 0.03773582, a: 1}
+  m_Color: {r: 0.9433962, g: 0.8519999, b: 0.10234961, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4945,7 +4938,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!1 &1804659429
 GameObject:
   m_ObjectHideFlags: 0
